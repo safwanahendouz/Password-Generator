@@ -33,3 +33,28 @@ body {
     font-size: 1.4em;
     margin-block: 8px;
 }
+
+.passBox {
+    background-color: #fff;
+    border: none;
+    outline: none;
+    padding: 10px;
+    width: 300px;
+    border-radius:10px;
+    font-size: 20px;
+    margin-block: 8px;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    -ms-border-radius:10px;
+    -o-border-radius:10px;
+}
+
+.row {
+    display: flex;
+    margin-block: 8px;
+}
+
+.row p {
+    flex-basis: 100%;
+    font-size: 18px;
+}
