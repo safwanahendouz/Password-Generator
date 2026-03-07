@@ -1,51 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Password Generator</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Password Generator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="container">
-        <h1>Password Generator</h1>
-
-        <div class="inputBox">
-            <input type="text " class="passBox" id="passBox" disabled>
-        </div>
-
-        <input type="range" min="1" max="30" value="8" id="inputSlider">
-        
-        <div class="row">
-            <p>Password Length</p>
-            <span id="SliderValue"></span>
-        </div>
-        
-        <div class="row">
-            <p>Password Length</p>
-            <label for="lowercase">Include Lowercase Letters (a-z)</label>
-            <input type="checkbox" name="lowercase" id="lowercase">
-        </div>
-
-        <div class="row">
-            <label for="Uppercase">Include Uppercase Letters (A-Z)</label>
-            <input type="checkbox" name="Uppercase" id="Uppercase">
-        </div>
-
-        <div class="row">
-            
-            <label for="numbers">Include Numbers (0-9)</label>
-            <input type="checkbox" name="numbers" id="numbers">
-        </div>
-
-        <div class="row">
-            <label for="symbols">Include symbols (@-*)</label>
-            <input type="checkbox" name="symbols" id="symbols">
-        </div>
-        <button type="button" class="genBtn" id="genBtn">Generate password</button>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="card">
+    <div class="header">
+      <div class="badge">🔐 Security Tool</div>
+      <h1>Pass<span>word</span><br>Generator</h1>
     </div>
-
-
-    <script src="script.js"></script>
+    <div class="pass-wrapper">
+      <input type="text" id="passBox" placeholder="Click generate to create a password…" readonly />
+      <button id="copyBtn" title="Copy to clipboard" aria-label="Copy password">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+        </svg>
+      </button>
+    </div>
+    <div class="strength-section">
+      <div class="strength-label">
+        <span>Strength</span>
+        <span id="strengthText">—</span>
+      </div>
+      <div class="strength-bar">
+        <div class="strength-seg" id="seg1"></div>
+        <div class="strength-seg" id="seg2"></div>
+        <div class="strength-seg" id="seg3"></div>
+        <div class="strength-seg" id="seg4"></div>
+      </div>
+    </div>
+    <div class="slider-section">
+      <div class="slider-header">
+        <span>Length</span>
+        <span id="sliderValue">8</span>
+      </div>
+      <input type="range" id="inputSlider" min="4" max="32" value="8" />
+    </div>
+    <div class="options">
+      <div class="option-row">
+        <label for="lowercase"><span class="opt-icon">a</span> Lowercase (a–z)</label>
+        <label class="toggle"><input type="checkbox" id="lowercase" checked /><span class="toggle-track"></span></label>
+      </div>
+      <div class="option-row">
+        <label for="Uppercase"><span class="opt-icon">A</span> Uppercase (A–Z)</label>
+        <label class="toggle"><input type="checkbox" id="Uppercase" checked /><span class="toggle-track"></span></label>
+      </div>
+      <div class="option-row">
+        <label for="numbers"><span class="opt-icon">0</span> Numbers (0–9)</label>
+        <label class="toggle"><input type="checkbox" id="numbers" checked /><span class="toggle-track"></span></label>
+      </div>
+      <div class="option-row">
+        <label for="symbols"><span class="opt-icon">#</span> Symbols (@!$…)</label>
+        <label class="toggle"><input type="checkbox" id="symbols" /><span class="toggle-track"></span></label>
+      </div>
+    </div>
+    <button type="button" id="genBtn">Generate Password</button>
+  </div>
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
 </body>
 </html>
