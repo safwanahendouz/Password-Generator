@@ -17,9 +17,25 @@ genBtn.addEventListener('click', ()=> {
     passBox.value = generatePassword();
 })
 
+let lowerchars = 'azertyuiopqsdfghjklmwxcvbn';
+let upperChars = 'AZERTYUIOPQSDFGHJKLMWXCVBN';
+let allNumbers = '0123456789';
+let allSymbols = '&#%@!$'
+
 // Function to generate Password
 function generatePassword(){
     let genPassword = "";
-    genPassword = Math.floor(Math.random() * 50);
+    let allChars = "";
+
+    allChars += lowercase.checked ? lowerchars : "";
+    allChars += lowercase.checked ? Uppercaseerchars : "";
+    allChars += lowercase.checked ? allNumbers : "";
+    allChars += lowercase.checked ? allSymbols : "";
+
+    let i = 1;
+    while(i<=inputSlider.value){
+        genPassword += allChars.charAt(Math.floor(Math.random() * allChars.length));
+    }
+    
     return genPassword;
 }
